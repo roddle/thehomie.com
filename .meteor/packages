@@ -16,3 +16,4 @@ insecure
 #accounts-google
 #accounts-weibo
 
+iron:router

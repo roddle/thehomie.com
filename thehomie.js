@@ -34,15 +34,29 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 
-  Meteor.Router.add({
-    '/inbound':  function() {
-      post = this.request.body;
-      console.log(post)
-      color = post.subject;
-      Colors.update({pos: 1},{ $set: { "name": color } } );
-      return [200, "Success"]
-    }
+  // this is hopefully a working equivalent using iron:router
+  Router.route('/inbound', function () {
+    post = this.request.body;
+    console.log(post);
+    color = post.subject;
+    Colors.update({pos: 1},{ $set: { "name": color } } );
+    return [200, "Success"];
+    //this.render('MyTemplate');
   });
+
+  // can I find this router?
+  // how to convert this to work with the above example?
+
+  // original router catch logic works for meteor:router
+  // Meteor.Router.add({
+  //   '/inbound':  function() {
+  //     post = this.request.body;
+  //     console.log(post)
+  //     color = post.subject;
+  //     Colors.update({pos: 1},{ $set: { "name": color } } );
+  //     return [200, "Success"]
+  //   }
+  // });
 
   Meteor.startup(function () {
     // code to run on server at startup
