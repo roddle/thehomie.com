@@ -40,8 +40,8 @@ if (Meteor.isServer) {
     console.log(post);
     color = post.subject;
     Colors.update({pos: 1},{ $set: { "name": color } } );
-    return [200, "Success"];
-    //this.render('MyTemplate');
+    //return [200, "Success"];
+    this.render('thehomie');
   });
 
   // can I find this router?
